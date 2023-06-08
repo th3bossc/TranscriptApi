@@ -1,0 +1,13 @@
+#python cache 
+**/__pycache__/
+
+
+#my files
+
+trial.py
+test/
+
+
+# 2 repos 
+.github/
+.githugg/
