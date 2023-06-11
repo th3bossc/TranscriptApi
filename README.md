@@ -1,16 +1,3 @@
----
-title: TranscriptApi
-emoji: ⚡
-colorFrom: pink
-colorTo: green
-sdk: docker
-pinned: false
----
-
-Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
-
-
-
 # TranscriptApi
 
 TranscriptApi is a backend service written in Flask that provides a RESTful API for summarizing YouTube videos or uploaded files using deep learning models. It allows users to extract and summarize the textual content from video or audio files, enabling easy access to key information.
