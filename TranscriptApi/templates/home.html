@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link href = "{{url_for('static', filename = 'styles.css')}}" rel = "stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,800&display=swap" rel="stylesheet">
+
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  <script defer src = "{{url_for('static', filename = 'app.js')}}"></script>
+
+  <nav class="navbar navbar-expand-lg sticky-top", id = "navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Video summarizer</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <button class="nav-link" aria-current="page" href="#" onclick = "location.reload();">Home</button>
+          <a class="nav-link" href="#" id = 'theme' style = 'transition: all 200ms ease-in-out;'>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</head>
+<body class = ''>
+  <section class = 'grid'>
+    <h1 class = 'animate__animated animate__slideInDown heading'>
+      This page is redundant, Please visit <a href="https://th3bossc.github.io/SummarizationApp"> here </a> for the actual site
+    </h1>
+
+    <!-- <div class = 'url-submit-form animate__animated animate__slideInUp'>
+      <form class="input-group mb-3" id = "url-form">
+        <input type="text" class="form-control hid" id = 'url' style = "background-color: var(--heading-bg); color : var(--text-color); transition : all 200ms ease; transition-delay : 300ms;" placeholder="Enter URL here">
+      </form>
+      <button class = "btn btn-primary hid" id = 'submit-btn' type = 'submit' form = "url-form">
+        Summarize
+      </button>
+    </div> -->
+
+
+    <!-- <div class = 'text', id = 'main-content'>
+      <div class = 'title'>
+        <strong id = 'video-title'>
+          Text
+        </strong>
+        <hr>
+      </div>
+      <div class = 'content', id = 'video-summary'>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
+    </div> -->
+  </section>
+</body>
+</html>
