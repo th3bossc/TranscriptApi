@@ -39,6 +39,9 @@ def get_video(video_url, location, filename = 'audio'):
     video_filename = location + filename + '.mp4'
     audio_filename = location + filename + '.mp3'
     print('[INFO] downloading video...')
+    video = YouTube(video_url).streams.filter(file_extension = 'mp4').first().download(filename = video_filename)
+
+    print("something")
     video = VideoFileClip(video_filename)
     print('[INFO] extracting audio from video...')
     video.audio.write_audiofile(audio_filename)
@@ -77,9 +80,8 @@ def transcribe_audio(audio_files, output_file = None, model = whisper.load_model
     for audio_file in audio_files:
         response = model.transcribe(audio_file)
         transcripts.append(response['text'])
-
     if output_file is not None:
-        with open(output_file, 'w') as f:
+        with open(output_file, 'w', encoding = 'utf-8') as f:
             for transcript in transcripts:
                 f.write(transcript + '\n')
     
@@ -137,7 +139,12 @@ def summarize_youtube_video(video_url, outputs_dir):
     complete_summary = ' '.join(summaries)
     with open(summary_file, 'w') as f:
         f.write(complete_summary)
-    return complete_summary
+
+    with open(transcripts_file, 'r') as f:
+        complete_transcript = f.read()
+    # print(complete_transcript)
+    print(complete_summary)
+    return {'transcript': complete_transcript, 'summary' : complete_summary}
 ############################################################
 
 
@@ -194,9 +201,9 @@ def summarize_string(text : str):
 def summarize_file(file_location, file_extension, working_dir = "TranscriptApi/static/files"):
     # _, file_extension = os.path.splitext(file_location)
     text = ""
-    if file_extension == '.pdf':
+    if file_extension == 'pdf':
         text = extract_text_pdf(file_location)
-    elif file_extension == '.txt':
+    elif file_extension == 'txt':
         text = extract_text_txt(file_location)
     else:
         return "[ERROR]"
@@ -204,4 +211,9 @@ def summarize_file(file_location, file_extension, working_dir = "TranscriptApi/s
     if os.path.exists(working_dir):
         shutil.rmtree(working_dir)
     os.mkdir(working_dir)
-    return summarize_string(text)
+    return [text, summarize_string(text)]
+
+
+def answer(question: str, context : str):
+    qa = pipeline(task = "question-answering", model = "deepset/roberta-base-squad2")
+    return qa(question = question, context = context)['answer']
